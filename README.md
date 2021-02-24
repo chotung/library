@@ -19,3 +19,4 @@ Front-end Functionalities:
 	*  an author view should display the authors’ full name and the books they wrote
 - [ ] Mark/Unmark a book as a duplicate
 * Duplicates have not been implemented, possible solution would be to edit migration files and add :array type known as duplicates which will have a reference to others added
+- [ ] Test Spec
