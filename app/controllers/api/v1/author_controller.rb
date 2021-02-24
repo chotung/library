@@ -1,12 +1,12 @@
 class Api::V1::AuthorController < ApplicationController
-	before_action :find_author, only: [:show, :update, :destory]
+  before_action :find_author, only: [:show, :update, :destory]
 	def index
 		@authors = Author.all
 		render json: @authors
 	end
 
 	def show
-		render json: @authors
+		render json: @author
 	end
 
 	def create
@@ -40,9 +40,7 @@ class Api::V1::AuthorController < ApplicationController
 	def author_params
 		params.require(:author).permit(:name)
 	end
-	
-	def author_fact
+	def find_author
 		@author = Author.find(params[:id])
 	end
-
 end

@@ -1,12 +1,12 @@
 class Api::V1::BookController < ApplicationController
-		before_action :find_book, only: [:show, :update, :destory]
+	before_action :find_book, only: [:show, :update, :destory]
 	def index
 		@books = Book.all
 		render json: @books
 	end
 
 	def show
-		render json: @books
+		render json: @book
 	end
 
 	def create
@@ -40,9 +40,7 @@ class Api::V1::BookController < ApplicationController
 	def book_params
 		params.require(:book).permit(:title)
 	end
-	
-	def book_fact
+	def find_book
 		@book = Book.find(params[:id])
 	end
-
 end
