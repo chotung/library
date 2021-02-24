@@ -34,7 +34,6 @@ function App() {
 	}
 
 	const showDetails = (id, type) => {
-		console.log(id, type);
 		if(type === 'author') {
 			// route to author's details
 			// get author's information 
