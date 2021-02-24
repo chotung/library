@@ -3,6 +3,14 @@ import './App.css';
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 import List from './components/List';
+// Things I would have like to add or done differently
+// - React-Router
+// - Global state manger either using hooks or redux
+// - styling for intuitive and appealing UI
+// - Created the details view/component for each book/author
+// - add check button to allow admins to add or remove books as duplicates
+// Refactored the code
+//  - move the helper functions and api functions to a separate folder
 
 function App() {
 	useEffect(() => {

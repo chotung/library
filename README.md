@@ -1,25 +1,7 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Library is a virtual database to access information about books and it's associated author(s)
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-"# library" 
+# BackLogged Features
+* Duplicates have not been implemented, possible solution would be to edit migration files and add :array type known as duplicates which will have a reference to others added
+* UI components not finish however logic and boilerplate for it has been set 
