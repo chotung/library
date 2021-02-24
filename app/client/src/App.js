@@ -1,34 +1,47 @@
 import logo from './logo.svg';
 import './App.css';
 import axios from 'axios'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 function App() {
 	useEffect(() => {
 		getAuthors()
 	},[])
 
+	const [authors, setAuthors] = useState([])
+	const [books, setBooks] = useState([])
+
+
 	const getAuthors = async () => {
-		const authors = await axios.get("/author")
-		console.log(authors);
+		try {
+			const res = await axios.get("/author")
+			const { data } = await res
+			setAuthors(data)
+		} catch (err) {
+			console.error(err)
+		}
+	}
+	const renderAllAuthors = () => {
+		if(authors.length !== 0) {
+			return authors.map(author => {
+				return (
+					<li key={author.id}>
+						{author.name}
+					</li>
+				)
+			})
+		}
+	}
+
+	const renderAllBooks = () => {
+		
 	}
 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+			<ul>
+				{renderAllAuthors()}
+			</ul>
     </div>
   );
 }
