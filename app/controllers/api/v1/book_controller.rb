@@ -21,16 +21,16 @@ class Api::V1::BookController < ApplicationController
 	def update
 		if @book
 			@book.update(book_params)
-			render json: { message: 'book successfully updated.' }, status: 200
+			render json: { message: 'Book successfully updated.' }, status: 200
 		else
-			render json: { error: 'Unable to update book.' }, status:400
+			render json: { error: 'Unable to update Book.' }, status:400
 		end
 	end
 
 	def destory
 		if @book
 			@book.destory
-			render json: { message: 'book successfully deleted.' }, status: 200
+			render json: { message: 'Book successfully deleted.' }, status: 200
 		else
 			render json: { error: 'Unable to delete book.' }, status:400
 		end
@@ -38,9 +38,8 @@ class Api::V1::BookController < ApplicationController
 
 	private
 	def book_params
-		params.require(:book).permit(:name)
+		params.require(:book).permit(:title)
 	end
-	# exmaple of DRYing up code
 	def find_book
 		@book = Book.find(params[:id])
 	end

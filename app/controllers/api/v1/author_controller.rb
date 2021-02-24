@@ -1,5 +1,5 @@
 class Api::V1::AuthorController < ApplicationController
-		before_action :find_author, only: [:show, :update, :destory]
+  before_action :find_author, only: [:show, :update, :destory]
 	def index
 		@authors = Author.all
 		render json: @authors
@@ -21,16 +21,16 @@ class Api::V1::AuthorController < ApplicationController
 	def update
 		if @author
 			@author.update(author_params)
-			render json: { message: 'author successfully updated.' }, status: 200
+			render json: { message: 'Author successfully updated.' }, status: 200
 		else
-			render json: { error: 'Unable to update author.' }, status:400
+			render json: { error: 'Unable to update Author.' }, status:400
 		end
 	end
 
 	def destory
 		if @author
 			@author.destory
-			render json: { message: 'author successfully deleted.' }, status: 200
+			render json: { message: 'Author successfully deleted.' }, status: 200
 		else
 			render json: { error: 'Unable to delete author.' }, status:400
 		end
@@ -40,7 +40,6 @@ class Api::V1::AuthorController < ApplicationController
 	def author_params
 		params.require(:author).permit(:name)
 	end
-	# exmaple of DRYing up code
 	def find_author
 		@author = Author.find(params[:id])
 	end
